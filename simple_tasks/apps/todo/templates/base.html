@@ -1,12 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'todo/bootstrap.min.css' %}">
     <title>Title</title>
 </head>
 <body>
-{% block content %}
-replace me
-{% endblock content %}
+
+<div class="container">
+  <nav class="navbar navbar-light" style="background-color: #87CEFA;">
+    <a class="navbar-brand" href="#"><span class="text-white">TO-DO</span></a>
+  </nav>
+</div>
+
+<div class="container">
+    <div class="row">
+    </div>
+</div>
+
+<div class="container">
+    {% block content %}
+        replace me
+    {% endblock content %}
+</div>
+
 </body>
 </html>
