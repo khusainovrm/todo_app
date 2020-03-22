@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
 from .models import Card
 from .forms import CardForm
 
@@ -25,6 +25,7 @@ def todo_create (request):
     form=CardForm(request.POST)
     if form.is_valid():
         form.save()
+        return HttpResponseRedirect(reverse('todo:home'))
     context = {
         "form" : form
     }
