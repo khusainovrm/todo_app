@@ -7,4 +7,6 @@ urlpatterns = [
     path('', views.home, name = "home"),
     path('<int:note_id>/detail/', views.todo_detail, name="todo_detail"),
     path('create/', views.todo_create, name="todo_create"),
+    path('create-aim/', views.aim_create, name="aim_create"),
+
 ]

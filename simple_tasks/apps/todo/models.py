@@ -6,7 +6,7 @@ from django.utils import timezone
 class Card(models.Model):
     author = models.CharField("Автор", max_length=50)
     title = models.CharField("Заголовк", max_length=50)
-    text = models.TextField("Текст")
+    text = models.CharField("Текст", max_length=50)
     created = models.DateTimeField(default=timezone.now)
     #color
 

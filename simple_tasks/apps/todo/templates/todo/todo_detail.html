@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<a href="{% url 'todo:aim_create' %}" role="button">
+  <button type="button" class="btn btn-success">
+    Создать список дел/пунктов
+  </button>
+  <br><br>
+</a>
+{% if todoes %}
+    <h2>{{todo.title}}</h2>
+{% endif %}
+<ul class="list-group" >
+    {% for todom in todoes %}
 
-<ul class="list-group">
-    {% for todo in todoes %}
-  <li class="list-group-item">{{todo.text}}</li>
+     <button type="button" class="list-group-item list-group-item-action">{{todom.text}}</button>
     {% endfor %}
 </ul>
-
+{% if todoes %}
+    <p class="text-right">Автор: <i>{{todo.author}}</i></p>
+{% endif %}
 {% endblock content %}

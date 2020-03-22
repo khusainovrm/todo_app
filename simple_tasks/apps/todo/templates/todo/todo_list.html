@@ -2,17 +2,27 @@
 
 {% block content %}
 
-{% for note in all_notes %}
-<div class="card bg-light mb-3" style="max-width: 18rem;">
-  <div class="card-header">
-    {{note.author}}
-  </div>
-  <div class="card-body">
-      <a href = "{% url "todo:todo_detail" note.id %}">
-    <h5 class="card-title">{{note.title}}</h5>
-    <p class="card-text">{{note.text}}</p>
-      </a>
-  </div>
+<a href="{% url 'todo:todo_create' %}" role="button">
+  <button type="button" class="btn btn-success">
+    Создать заметку
+  </button>
+  <br><br>
+</a>
+
+<div class="row row-cols-1 row-cols-md-3">
+  {% for note in all_notes %}
+    <div class="col mb-4">
+      <div class="card bg-light mb-3 h-100" style="min-width: 18rem;">
+        <div class="card-header">
+          {{note.author}}
+        </div>
+        <div class="card-body">
+          <a href = "{% url "todo:todo_detail" note.id %}">
+          <h5 class="card-title">{{note.title}}</h5>
+          <p class="card-text">{{note.text}}</p></a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
 </div>
-{% endfor %}
 {% endblock content %}
